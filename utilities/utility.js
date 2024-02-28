@@ -1,13 +1,6 @@
 'use strict';
 
-// Vérifier si le fichier est bon.
-function fileValidation(file, res) {
-    if ( !file){
-        res.status(400).send('Aucun fichier envoyé');
-    } else if (file.mimetype != "text/csv") {
-        res.status(400).send('Mauvais format de fichier'); 
-    }
-    return;
-}
+// Formate les headers pour une requête axios
+const formatHeaders = data => [data, {'headers': {'content-type': 'application/x-www-form-urlencoded'}}];
 
-module.exports = {fileValidation};
+module.exports = {formatHeaders};
