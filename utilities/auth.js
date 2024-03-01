@@ -7,9 +7,11 @@ const mongoose = require("mongoose");
 
 mongoose.set("strictQuery", false);
 
+// Se connecte à la DB et print une erreur si la connexion échoue 
 async function connectToDb(){
-    await mongoose.connect('mongodb+srv://' + local.db.id + ':' + local.db.pass + '@' + local.db.url);
-    console.log('connectés !');
+    await mongoose.connect('mongodb+srv://' + local.db.id + ':' + local.db.pass + '@' + local.db.url).
+        catch(error => handleError(error));
+    // console.log(mongoose.connection.readyState);
 };
 
 async function getSpotifyToken() {
@@ -24,6 +26,6 @@ async function getSpotifyToken() {
         console.error(err.message);
         return false;
     }
-  }
+}
 
 module.exports = {getSpotifyToken, connectToDb};

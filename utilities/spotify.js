@@ -1,22 +1,17 @@
 'use strict';
 
-
 // Faire tous les appels de fonction vers l'API Spotify
 
 // getPlaylists
-
 
 const axios = require('axios');
 const local = require('../local.js');
 const utility = require('./utility.js')
 
-
 //Retourne un Array avec toutes les playlists et leurs informations
-async function getAllPlaylists(){
+// async function getAllPlaylists(){
 
-}
-
-// testid 6zyMgS70A4vtqLpUEqN9kM
+// }
 
 async function getPlaylistData(playlistId) {
 
